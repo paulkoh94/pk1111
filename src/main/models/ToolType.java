@@ -1,14 +1,14 @@
 package main.models;
 
 public class ToolType {
-	private String name;
+	private int id;
 	private double dailyCharge;
 	private boolean weekdayCharge;
 	private boolean weekendCharge;
 	private boolean holidayCharge;
 	
-	public ToolType(String name, double dailyCharge, boolean weekdayCharge, boolean weekendCharge, boolean holidayCharge) {
-		this.name = name;
+	public ToolType(int id, double dailyCharge, boolean weekdayCharge, boolean weekendCharge, boolean holidayCharge) {
+		this.id = id;
 		this.dailyCharge = dailyCharge;
 		this.weekdayCharge = weekdayCharge;
 		this.weekendCharge = weekendCharge;
@@ -16,15 +16,15 @@ public class ToolType {
 	}
 	
 	public ToolType(ToolType toolType) {
-		this.name = toolType.getName();
+		this.id = toolType.getId();
 		this.dailyCharge = toolType.getDailyCharge();
 		this.weekdayCharge = toolType.getWeekdayCharge();
 		this.weekendCharge = toolType.getWeekendCharge();
 		this.holidayCharge = toolType.getHolidayCharge();
 	}
 	
-	public String getName() {
-		return this.name;
+	public int getId() {
+		return this.id;
 	}
 	
 	public double getDailyCharge() {

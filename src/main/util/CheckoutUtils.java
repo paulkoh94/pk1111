@@ -2,6 +2,7 @@ package main.util;
 
 import main.models.Tool;
 import main.models.RentalAgreement;
+import main.util.ToolTypeEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,26 +34,26 @@ public class CheckoutUtils {
 		
 		LocalDate dueDate = checkoutDate.plusDays(rentalDaysCount);
 		
-		int chargeDays = getChargeDays(tool.getToolType().getName(), checkoutDate, rentalDaysCount);
+		int chargeDays = getChargeDays(tool.getToolType().getId(), checkoutDate, rentalDaysCount);
 		double preDiscountCharge = chargeDays * tool.getToolType().getDailyCharge();
 		double discountAmount = preDiscountCharge * discountPercent / 100;
 		double finalCharge = preDiscountCharge - discountAmount;
 		
-		return new RentalAgreement(toolCode, tool.getToolType().getName(), tool.getBrand(), rentalDaysCount, checkoutDate, dueDate, 
+		return new RentalAgreement(toolCode, ToolTypeEnum.getById(tool.getToolType().getId()).getName(), tool.getBrand(), rentalDaysCount, checkoutDate, dueDate, 
 				tool.getToolType().getDailyCharge(), chargeDays, preDiscountCharge, discountPercent, discountAmount, finalCharge);
 	}
 	
-	private int getChargeDays(String toolType, LocalDate checkoutDate, int rentalDaysCount) throws Exception {
+	private int getChargeDays(int toolTypeId, LocalDate checkoutDate, int rentalDaysCount) throws Exception {
 		int chargeDays = rentalDaysCount;		
 		
-		switch(toolType) {
-			case "ladder":
+		switch(toolTypeId) {
+			case 1:
 				chargeDays = subtractHolidayCharge(chargeDays, checkoutDate, rentalDaysCount);
 				break;
-			case "chainsaw":
+			case 2:
 				chargeDays = subtractWeekendCharge(chargeDays, checkoutDate, rentalDaysCount);
 				break;
-			case "jackhammer":
+			case 3:
 				chargeDays = subtractWeekendCharge(chargeDays, checkoutDate, rentalDaysCount);
 				chargeDays = subtractHolidayCharge(chargeDays, checkoutDate, rentalDaysCount);
 				break;

@@ -23,9 +23,9 @@ public class ToolServices {
 	private List<ToolType>  getToolTypeList() {
 		List<ToolType> toolTypeList = new ArrayList<>();
 		
-		toolTypeList.add(new ToolType("ladder", 1.99, true, true, false));
-		toolTypeList.add(new ToolType("chainsaw", 1.49, true, false, true));
-		toolTypeList.add(new ToolType("jackhammer", 2.99, true, false, false));
+		toolTypeList.add(new ToolType(1, 1.99, true, true, false));
+		toolTypeList.add(new ToolType(2, 1.49, true, false, true));
+		toolTypeList.add(new ToolType(3, 2.99, true, false, false));
 		
 		return toolTypeList;
 	}

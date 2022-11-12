@@ -32,7 +32,7 @@ class CheckoutTest {
 		var rentalAgreement = checkoutUtils.generateRentalAgreement("LADW", LocalDate.of(2020, 7, 2), 3, 10);
 		
 		assertEquals("LADW", rentalAgreement.getToolCode());
-		assertEquals("ladder", rentalAgreement.getToolType());
+		assertEquals("Ladder", rentalAgreement.getToolType());
 		assertEquals("Werner", rentalAgreement.getToolBrand());
 		assertEquals(3, rentalAgreement.getRentalDaysCount());
 		assertEquals(LocalDate.of(2020, 7, 2), rentalAgreement.getCheckoutDate());
@@ -50,7 +50,7 @@ class CheckoutTest {
 		var rentalAgreement = checkoutUtils.generateRentalAgreement("CHNS", LocalDate.of(2015, 7, 2), 5, 25);
 		
 		assertEquals("CHNS", rentalAgreement.getToolCode());
-		assertEquals("chainsaw", rentalAgreement.getToolType());
+		assertEquals("Chainsaw", rentalAgreement.getToolType());
 		assertEquals("Stihl", rentalAgreement.getToolBrand());
 		assertEquals(5, rentalAgreement.getRentalDaysCount());
 		assertEquals(LocalDate.of(2015, 7, 2), rentalAgreement.getCheckoutDate());
@@ -68,7 +68,7 @@ class CheckoutTest {
 		var rentalAgreement = checkoutUtils.generateRentalAgreement("JAKD", LocalDate.of(2015, 9, 3), 6, 0);
 		
 		assertEquals("JAKD", rentalAgreement.getToolCode());
-		assertEquals("jackhammer", rentalAgreement.getToolType());
+		assertEquals("Jackhammer", rentalAgreement.getToolType());
 		assertEquals("DeWalt", rentalAgreement.getToolBrand());
 		assertEquals(6, rentalAgreement.getRentalDaysCount());
 		assertEquals(LocalDate.of(2015, 9, 3), rentalAgreement.getCheckoutDate());
@@ -86,7 +86,7 @@ class CheckoutTest {
 		var rentalAgreement = checkoutUtils.generateRentalAgreement("JAKR", LocalDate.of(2015, 7, 2), 9, 0);
 		
 		assertEquals("JAKR", rentalAgreement.getToolCode());
-		assertEquals("jackhammer", rentalAgreement.getToolType());
+		assertEquals("Jackhammer", rentalAgreement.getToolType());
 		assertEquals("Ridgid", rentalAgreement.getToolBrand());
 		assertEquals(9, rentalAgreement.getRentalDaysCount());
 		assertEquals(LocalDate.of(2015, 7, 2), rentalAgreement.getCheckoutDate());
@@ -94,8 +94,8 @@ class CheckoutTest {
 		assertEquals(2.99, rentalAgreement.getDailyRentalCharge());
 		assertEquals(5, rentalAgreement.getChargeDays());
 		assertEquals(2.99 * 5, rentalAgreement.getPreDiscountCharge());
-		assertEquals((2.99 * 5) * 0, rentalAgreement.getDiscountPercent());
-		assertEquals((2.99 * 5) * 0, rentalAgreement.getDiscountAmount());
+		assertEquals(0, rentalAgreement.getDiscountPercent());
+		assertEquals(0, rentalAgreement.getDiscountAmount());
 		assertEquals(2.99 * 5 - ((2.99 * 5) * 0), rentalAgreement.getFinalCharge());
 	}
 	
@@ -104,7 +104,7 @@ class CheckoutTest {
 		var rentalAgreement = checkoutUtils.generateRentalAgreement("JAKR", LocalDate.of(2020, 7, 2), 4, 50);
 		
 		assertEquals("JAKR", rentalAgreement.getToolCode());
-		assertEquals("jackhammer", rentalAgreement.getToolType());
+		assertEquals("Jackhammer", rentalAgreement.getToolType());
 		assertEquals("Ridgid", rentalAgreement.getToolBrand());
 		assertEquals(4, rentalAgreement.getRentalDaysCount());
 		assertEquals(LocalDate.of(2020, 7, 2), rentalAgreement.getCheckoutDate());
